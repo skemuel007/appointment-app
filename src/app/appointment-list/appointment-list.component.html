@@ -1,0 +1,29 @@
+<h2 class="text-center mt-5">Create Appointment</h2>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="appointmentTitle">Appointment Title:</label>
+        <input [(ngModel)]="appointmentTitle" type="text" class="form-control" id="appointmentTitle" placeholder="Appointment Title">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="appointmentDate">Appointment Date:</label>
+        <input [(ngModel)]="appointmentDate" type="date" class="form-control" id="appointmentDate">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <button (click)="addAppointment()" class="btn btn-primary w-100">Add</button>
+    </div>
+  </div>
+
+  <h2 class="text-center mt-5">Appointments</h2>
+
+  <ul class="list-group mt-4">
+    <li *ngFor="let apt of appointments; let i = index" class="list-group-item d-flex justify-content-between">
+      {{ apt.title }}: {{ apt.date | date: 'dd.MM.yyyy' }}
+      <button (click)="deleteAppointment(i)" class="btn btn-danger float-right">Delete</button>
+    </li>
+  </ul>
+</div>
